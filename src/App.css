@@ -50,7 +50,7 @@ h6 {
 }
 
 .sideHeader {
-  padding: 10px 0px 0px 10px;
+  padding: 10px;
 }
 
 .tasksList {
@@ -60,21 +60,18 @@ h6 {
 }
 
 .tasksList > button {
+  display: flex;
+  align-items: center;
   text-align: left;
-}
-
-.taskShort {
-  padding: 10px 10px 0px 10px;
+  padding: 10px;
+  border-top: 1px solid #838383;
   width: 100%;
 }
 
-/* .taskShort .title {
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-} */
+.taskShort {
+  margin-left: 10px;
+  width: 100%;
+}
 
 .taskShort .title {
   font-size: 16px;
@@ -97,18 +94,38 @@ h6 {
   text-overflow: ellipsis;
 }
 
+.dataBlock {
+  display: flex;
+}
+
 .taskShort .date {
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 400;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-right: 5px;
 }
 .main {
   width: 75%;
-  padding: 20px 0px 0px 20px;
+  padding: 20px 20px 0px 20px;
+}
+
+.mainHeader {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.mainHeader * {
+  margin: 0px 10px;
+}
+
+input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
 }
 
 .modal {
@@ -124,6 +141,8 @@ h6 {
 }
 
 .createTask {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   top: 10%;
   left: 10%;
@@ -132,4 +151,33 @@ h6 {
   background-color: white;
   width: 80vw;
   height: 80vh;
+}
+
+.createTask input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.createTask button {
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.createTask .add {
+  background-color: #4caf50;
+}
+
+.createTask .cancel {
+  background-color: #af4c4c;
+}
+
+.createTask textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  resize: vertical; /* позволяет изменять высоту вертикально */
 }

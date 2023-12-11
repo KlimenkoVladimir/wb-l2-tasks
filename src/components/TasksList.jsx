@@ -7,6 +7,7 @@ const TasksList = ({
   filterOption,
   setFilterOption,
   setActiveTask,
+  handleTaskStatus,
 }) => {
   function createNewTask() {
     setIsModalActive(true);
@@ -34,6 +35,11 @@ const TasksList = ({
               setActiveTask(index);
             }}
           >
+            <input
+              type="checkbox"
+              onChange={() => handleTaskStatus(index)}
+              checked={tasks[index].checked}
+            ></input>
             <Task task={task} styleVariant={"taskShort"} />
           </button>
         ))}

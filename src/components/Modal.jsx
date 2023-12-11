@@ -16,6 +16,7 @@ const Modal = ({
       deadline: "",
       deadlineTime: "",
       creationDate: "",
+      checked: false,
     });
     console.log(newTask);
 
@@ -31,7 +32,7 @@ const Modal = ({
           value={newTask.title}
           onChange={(e) => setNewTask({ ...newTask, title: e.target.value })}
         />
-        <input
+        <textarea
           type="text"
           placeholder="Описание"
           value={newTask.description}
@@ -55,7 +56,7 @@ const Modal = ({
         />
         <input
           type="time"
-          value={newTask.deadline}
+          value={newTask.deadlineTime}
           onChange={(e) =>
             setNewTask({
               ...newTask,
@@ -63,8 +64,11 @@ const Modal = ({
             })
           }
         />
-        <button onClick={addTask}>Создать</button>
+        <button className="add" onClick={addTask}>
+          Создать
+        </button>
         <button
+          className="cancel"
           onClick={() => {
             setIsModalActive(false);
           }}

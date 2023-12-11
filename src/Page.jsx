@@ -14,12 +14,13 @@ const Page = () => {
     deadline: "",
     deadlineTime: "",
     creationDate: "",
+    checked: false,
   });
 
   const [filterOption, setFilterOption] = useState("created");
   const sortedTasks = [...tasks].sort((a, b) => {
     if (filterOption === "created") {
-      return (a.createdDate || "").localeCompare(b.title || "");
+      return (a.createdDate || "").localeCompare(b.createdDate || "");
     } else {
       console.log("else");
       return (`${a.deadline}, ${a.deadlineTime}` || "").localeCompare(
@@ -45,6 +46,20 @@ const Page = () => {
     deleteTask();
   }
 
+  function handleTaskStatus(index) {
+    const updatedTasks = [...sortedTasks];
+    console.log(index);
+    const updatedTask = {
+      ...updatedTasks[index],
+      checked: !updatedTasks[index].checked,
+    };
+
+    updatedTasks[index] = updatedTask;
+
+    setTasks(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+  }
+
   return (
     <div className="container">
       <TasksList
@@ -53,12 +68,20 @@ const Page = () => {
         filterOption={filterOption}
         setFilterOption={setFilterOption}
         setActiveTask={setActiveTask}
+        handleTaskStatus={handleTaskStatus}
       ></TasksList>
       <div className="main">
-        <div className="header">
-          <button onClick={updateTask}>Изменить</button>
-          <button onClick={deleteTask}>Удалить</button>
-        </div>
+        {sortedTasks[activeTask] && (
+          <div className="mainHeader">
+            <button onClick={updateTask}>Изменить</button>
+            <button onClick={deleteTask}>Удалить</button>
+            <input
+              type="checkbox"
+              onChange={() => handleTaskStatus(activeTask)}
+              checked={sortedTasks[activeTask].checked}
+            ></input>
+          </div>
+        )}
         <Task task={sortedTasks[activeTask]} styleVariant={"taskFull"}></Task>
       </div>
 
