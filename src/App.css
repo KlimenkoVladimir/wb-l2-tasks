@@ -49,8 +49,14 @@ h6 {
   width: 25%;
 }
 
+.sideHeader {
+  padding: 10px 0px 0px 10px;
+}
+
 .tasksList {
-  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
 }
 
 .tasksList > button {
@@ -58,12 +64,50 @@ h6 {
 }
 
 .taskShort {
-  padding: 10px 0px 0px 10px;
+  padding: 10px 10px 0px 10px;
   width: 100%;
 }
 
+/* .taskShort .title {
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */
+
+.taskShort .title {
+  font-size: 16px;
+  font-weight: 600;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.taskShort .description {
+  font-size: 14px;
+  font-weight: 400;
+  color: #838383;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.taskShort .date {
+  font-size: 12px;
+  font-weight: 400;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .main {
-  width: 80%;
+  width: 75%;
   padding: 20px 0px 0px 20px;
 }
 

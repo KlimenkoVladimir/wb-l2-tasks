@@ -4,11 +4,9 @@ const Task = ({ task, styleVariant }) => {
   return task ? (
     <div className={styleVariant}>
       <h3 className="title">{task.title}</h3>
-      <p>{task.description}</p>
-      <p>{task.deadline}</p>
-      <p>{task.creationDate}</p>
-      {/* <button>Изменить</button>
-      <button>Удалить</button> */}
+      <p className="description">{task.description}</p>
+      <p className="date">{task.creationDate}</p>
+      <p className="date">{`${task.deadline},  ${task.deadlineTime}`}</p>
     </div>
   ) : null;
 };

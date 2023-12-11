@@ -12,6 +12,7 @@ const Page = () => {
     title: "",
     description: "",
     deadline: "",
+    deadlineTime: "",
     creationDate: "",
   });
 
@@ -20,7 +21,10 @@ const Page = () => {
     if (filterOption === "created") {
       return (a.createdDate || "").localeCompare(b.title || "");
     } else {
-      return a.deadline - b.deadline;
+      console.log("else");
+      return (`${a.deadline}, ${a.deadlineTime}` || "").localeCompare(
+        `${b.deadline}, ${b.deadlineTime}` || ""
+      );
     }
   });
 

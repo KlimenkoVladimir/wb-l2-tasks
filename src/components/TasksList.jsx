@@ -14,15 +14,18 @@ const TasksList = ({
 
   return (
     <div className="side">
-      <h3>Заметки</h3>
-      <button onClick={createNewTask}>Создать</button>
-      <select
-        value={filterOption}
-        onChange={(e) => setFilterOption(e.target.value)}
-      >
-        <option value="created">по времени создания</option>
-        <option value="deadline">по сроку выполнения</option>
-      </select>
+      <div className="sideHeader">
+        <h3>Заметки</h3>
+        <button onClick={createNewTask}>Создать</button>
+        <select
+          value={filterOption}
+          onChange={(e) => setFilterOption(e.target.value)}
+        >
+          <option value="created">по времени создания</option>
+          <option value="deadline">по сроку выполнения</option>
+        </select>
+      </div>
+
       <div className="tasksList">
         {tasks.map((task, index) => (
           <button

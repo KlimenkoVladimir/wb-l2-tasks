@@ -14,6 +14,7 @@ const Modal = ({
       title: "",
       description: "",
       deadline: "",
+      deadlineTime: "",
       creationDate: "",
     });
     console.log(newTask);
@@ -45,7 +46,20 @@ const Modal = ({
             setNewTask({
               ...newTask,
               deadline: e.target.value,
-              creationDate: new Date().toLocaleDateString(),
+              creationDate: new Date()
+                .toISOString()
+                .slice(0, 16)
+                .replace("T", ", "),
+            })
+          }
+        />
+        <input
+          type="time"
+          value={newTask.deadline}
+          onChange={(e) =>
+            setNewTask({
+              ...newTask,
+              deadlineTime: e.target.value,
             })
           }
         />
