@@ -75,11 +75,11 @@ const Page = () => {
           <div className="mainHeader">
             <button onClick={updateTask}>Изменить</button>
             <button onClick={deleteTask}>Удалить</button>
-            <input
+            {/* <input
               type="checkbox"
               onChange={() => handleTaskStatus(activeTask)}
               checked={sortedTasks[activeTask].checked}
-            ></input>
+            ></input> */}
           </div>
         )}
         <Task task={sortedTasks[activeTask]} styleVariant={"taskFull"}></Task>

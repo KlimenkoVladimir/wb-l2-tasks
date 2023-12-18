@@ -17,7 +17,7 @@ const TasksList = ({
     <div className="side">
       <div className="sideHeader">
         <h3>Заметки</h3>
-        <button onClick={createNewTask}>Создать</button>
+
         <select
           value={filterOption}
           onChange={(e) => setFilterOption(e.target.value)}
@@ -25,6 +25,7 @@ const TasksList = ({
           <option value="created">по времени создания</option>
           <option value="deadline">по сроку выполнения</option>
         </select>
+        <button onClick={createNewTask}>Создать</button>
       </div>
 
       <div className="tasksList">
