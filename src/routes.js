@@ -2,7 +2,7 @@ import Page from "./Page";
 
 export const routes = [
   {
-    path: "/tasks",
+    path: "/",
     element: <Page></Page>,
   },
 ];
